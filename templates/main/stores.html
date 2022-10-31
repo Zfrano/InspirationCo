@@ -1,38 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">name</th>
-        <th scope="col">division</th>
-        <th scope="col">district manager</th>
-        <th scope="col">city manager</th>
-        <th scope="col">weekday opening</th>
-        <th scope="col">weekday closing</th>
-        <th scope="col">sat opening</th>
-        <th scope="col">sat closing</th>
-        <th scope="col">sun opening</th>
-        <th scope="col">sun closing</th>
-      </tr>
-    </thead>
-    <tbody>
-        {% for store in all_stores %}
-      <tr>
-       <td>{{ store.id }}</td>
-       <td>{{ store.name }}</td>
-       <td>{{ store.division }}</td>
-       <td>{{ store.district_manager }}</td>
-       <td>{{ store.city_manager }}</td>
-       <td>{{ store.weekday_opening }}</td>
-       <td>{{ store.weekday_closing }}</td>
-       <td>{{ store.sat_opening }}</td>
-       <td>{{ store.sat_closing }}</td>
-       <td>{{ store.sun_opening }}</td>
-       <td>{{ store.sun_closing }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+    <div class="district_manager_area">
+        <h1 class="bg-primary text-center text-light">District managers</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">store manager</th>
+                <th scope="col">district manager</th>
+                <th scope="col">Store Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for store in store_info %}
+                <tr>
+                    <td scope="col">{{ store.id }}</td>
+                    <td scope="col">{{ store.store_manager_name }}</td>
+                    <td scope="col">{{ store.district_manager.district_manager_name }}</td>
+                    <td scope="col">{{ store.store.name }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
